@@ -9,21 +9,41 @@ class App extends Component {
     super();
     this.state = {
       name: 'React',
-      last:  + 9
+      last:  'Js'
     };
+
+    // validate
     Hello.propTypes = {
     name: PropTypes.string,
     last: PropTypes.string.isRequired
       }
-  }
 
+      
+  }
+  
   render() {
+    // Use Interpolation in JSX
+    // https://egghead.io/lessons/react-understand-and-use-interpolation-in-jsx
+    function CharacterCount ({text}) {
+        return (
+          <div>
+          {`The prop name "${text}" has `} <strong>({text.length})</strong> characters
+
+          </div>
+        )
+      }
+
     return (
       <div>
+      
         <Hello name={this.state.name} last={this.state.last}/>
         <p>
           Start editing to see some magic happen :)
         </p>
+
+        <CharacterCount text= {this.state.name} />
+        <CharacterCount text= {this.state.last} />
+
       </div>
     );
   }
