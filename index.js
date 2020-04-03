@@ -7,14 +7,15 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      name: 'React'
+      name: 'React',
+      last: '-js'
     };
   }
 
   render() {
     return (
       <div>
-        <Hello name={this.state.name} />
+        <Hello name={this.state.name} last={this.state.last}/>
         <p>
           Start editing to see some magic happen :)
         </p>
