@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import PropTypes from 'prop-types';
 import Hello from './Hello';
 import './style.css';
 
@@ -8,8 +9,12 @@ class App extends Component {
     super();
     this.state = {
       name: 'React',
-      last: '-js'
+      last:  + 9
     };
+    Hello.propTypes = {
+    name: PropTypes.string,
+    last: PropTypes.string.isRequired
+      }
   }
 
   render() {
