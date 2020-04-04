@@ -19,7 +19,9 @@ class App extends Component {
       }
 
       
-  }
+  };
+
+  
   
   render() {
     // Use Interpolation in JSX
@@ -33,6 +35,18 @@ class App extends Component {
         )
       }
 
+      function tick() {
+        const time = new Date().toLocaleTimeString()
+        
+
+        return (
+          <>
+          {time}
+          
+          </>
+        )
+      };
+
     return (
       <div>
       
@@ -43,6 +57,10 @@ class App extends Component {
 
         <CharacterCount text= {this.state.name} />
         <CharacterCount text= {this.state.last} />
+
+        <br />
+        {tick()}
+        
 
       </div>
     );
