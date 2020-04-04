@@ -43,13 +43,17 @@ class App extends Component {
           <>
           {time}
           
+        
+          
           </>
         )
       };
 
     return (
-      <div>
       
+      <div>
+      {tick(setInterval(tick, 1000))}
+        {console.log(tick())}
         <Hello name={this.state.name} last={this.state.last}/>
         <p>
           Start editing to see some magic happen :)
@@ -64,7 +68,9 @@ class App extends Component {
 
       </div>
     );
+    
   }
 }
+
 
 render(<App />, document.getElementById('root'));
