@@ -5,11 +5,14 @@ import Hello from "./Hello";
 import "./style.css";
 
 class App extends Component {
+  
   constructor() {
+    
     super();
     this.state = {
       name: "React",
       last: "Js"
+      
     };
 
     // validate
@@ -31,17 +34,18 @@ class App extends Component {
       );
     }
 
-    function tick() {
-      const time = new Date().toLocaleTimeString();
+    function Tick() {
+      const x = new Date().toLocaleTimeString();
+      
+      
 
-      return <>{time}</>;
+      return (<> {x} </>);
     }
 
     return (
       <div>
-        {tick()}
-        {setInterval(tick, 1000)}
-        {console.log(tick())}
+        <Tick />
+        
         
         <Hello name={this.state.name} last={this.state.last} />
         <p>Start editing to see some magic happen :)</p>
@@ -50,7 +54,7 @@ class App extends Component {
         <CharacterCount text={this.state.last} />
 
         <br />
-        {tick()}
+        
       </div>
     );
   }
