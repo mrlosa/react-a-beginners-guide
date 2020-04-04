@@ -11,7 +11,7 @@ class App extends Component {
     super();
     this.state = {
       name: "React",
-      last: "Js"
+      last: ""
       
     };
 
@@ -28,7 +28,7 @@ class App extends Component {
     function CharacterCount({ text }) {
       return (
         <div>
-          {`The prop name "${text}" has `} <strong>({text.length})</strong>{" "}
+          {`The prop name "${text} "has `} {text.length ? <strong style={{color:'green'}}>({text.length})</strong> : <span style={{color:'red'}}>'No' </span>}
           characters
         </div>
       );
