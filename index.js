@@ -11,14 +11,16 @@ class App extends Component {
     super();
     this.state = {
       name: "React",
-      last: ""
+      last: "Js",
+      eMpty: ""
       
     };
 
     // validate
     Hello.propTypes = {
       name: PropTypes.string,
-      last: PropTypes.string.isRequired
+      last: PropTypes.string.isRequired,
+      eMpty: PropTypes.string
     };
   }
 
@@ -30,6 +32,7 @@ class App extends Component {
         <div>
           {`The prop name "${text} "has `} {text.length ? <strong style={{color:'green'}}>({text.length})</strong> : <span style={{color:'red'}}>'No' </span>}
           characters
+          <div> This prop name is {text.length ? <strong style={{color:'green'}}>({text})</strong> : <span style={{color:'red'}}>'No name' </span>}</div>
         </div>
       );
     }
@@ -47,12 +50,16 @@ class App extends Component {
         <Tick />
         
         
-        <Hello name={this.state.name} last={this.state.last} />
+        <Hello name={this.state.name} last={this.state.last} 
+        eMpty={this.state.eMpty} />
+        <br />
         <p>Start editing to see some magic happen :)</p>
 
         <CharacterCount text={this.state.name} />
+        <br />
         <CharacterCount text={this.state.last} />
-
+        <br />
+        <CharacterCount text={this.state.eMpty} />
         <br />
         
       </div>
