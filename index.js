@@ -60,14 +60,25 @@ class App extends Component {
     // useState hook
     function Greeting() {
       const [name, setName] = React.useState('')
-
+      const [name2, setName2] = React.useState('')
+      const handleCahnge = event => setName(event.target.value)
+      const handleCahnge2 = event => setName2(event.target.value)
       return (
         <div>
+        <h2>Form React Hook</h2>
         <form>
         <label htmlFor="name">Name:  </label>
         <input onChange={handleCahnge} id="name" />
         </form>
-        {name ?<strong>Hello {name}</strong> : 'Please type your name'}
+        {name ?<strong>Hello {name}</strong> : <span style={{color:'red'}}>Please type your name.</span>}
+
+        <div>
+        <form>
+        <label htmlFor="name2">Last Name:  </label>
+        <input onChange={handleCahnge2} id="name2" />
+        </form>
+        {name2 ?<strong>Hello {name2}</strong> : <span style={{color:'red'}}>Please type your last name.</span>}
+        </div>
         </div>
       );
     }
@@ -90,7 +101,7 @@ class App extends Component {
         <br />
         <CharacterCount text={this.state.eMpty} />
         <br />
-        
+        <Greeting />
       </div>
     );
   }
