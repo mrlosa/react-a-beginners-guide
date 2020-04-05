@@ -16,7 +16,6 @@ class App extends Component {
       name: "React",
       last: "Js",
       eMpty: ""
-      
     };
 
     // validate
@@ -24,13 +23,19 @@ class App extends Component {
       name: PropTypes.string,
       last: PropTypes.string.isRequired,
       eMpty: PropTypes.string
+      
+      
+        
     };
+
+    
   }
 
   render() {
     // Use Interpolation in JSX
-    // https://egghead.io/lessons/react-understand-and-use-interpolation-in-jsx
     function CharacterCount({ text }) {
+      
+      
       return (
         <div>
           {`The prop name "${text} "has `} {text.length ? <strong style={{color:'green'}}>({text.length})</strong> : <span style={{color:'red'}}>'No' </span>}
@@ -41,7 +46,7 @@ class App extends Component {
     }
 
     
-
+  //set time
     function Tick() {
       const time = new Date().toLocaleTimeString();
 
@@ -59,23 +64,30 @@ class App extends Component {
 
     // useState hook
     function Greeting() {
-      const [name, setName] = React.useState('')
-      const [name2, setName2] = React.useState('')
+      const [name, setName] = React.useState( window.localStorage.getItem('name') || '')
+      const [name2, setName2] = React.useState(window.localStorage.getItem('name2') || '')
       const handleCahnge = event => setName(event.target.value)
       const handleCahnge2 = event => setName2(event.target.value)
+
+      React.useEffect(() => {
+        window.localStorage.setItem('name', name)
+        window.localStorage.setItem('name2', name2)
+        
+      })
+
       return (
         <div>
         <h2>Form React Hook</h2>
         <form>
         <label htmlFor="name">Name:  </label>
-        <input onChange={handleCahnge} id="name" />
+        <input value={name} onChange={handleCahnge} id="name" />
         </form>
         {name ?<strong>Hello {name}</strong> : <span style={{color:'red'}}>Please type your name.</span>}
 
         <div>
         <form>
         <label htmlFor="name2">Last Name:  </label>
-        <input onChange={handleCahnge2} id="name2" />
+        <input value={name2} onChange={handleCahnge2} id="name2" />
         </form>
         {name2 ?<strong>Hello {name2}</strong> : <span style={{color:'red'}}>Please type your last name.</span>}
         </div>
