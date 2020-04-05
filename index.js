@@ -6,6 +6,8 @@ import Hello from "./Hello";
 import "./style.css";
 
 class App extends Component {
+
+  
   
   constructor() {
     
@@ -38,18 +40,44 @@ class App extends Component {
       );
     }
 
-    function Tick() {
-      const x = new Date().toLocaleTimeString();
-      
-      
+    
 
-      return (<> {x} </>);
+    function Tick() {
+      const time = new Date().toLocaleTimeString();
+
+      const xtime = setInterval(() => {
+      //autoPlay some for specific period of times or
+      // Do some stuff you want
+      time
+    }, 1000);
+      
+      const x = xtime
+      console.log(x)
+      console.log(time)
+      return (<> {time} </>);
     }
+
+    // useState hook
+    function Greeting() {
+      const [name, setName] = React.useState('')
+
+      return (
+        <div>
+        <form>
+        <label htmlFor="name">Name:  </label>
+        <input onChange={handleCahnge} id="name" />
+        </form>
+        {name ?<strong>Hello {name}</strong> : 'Please type your name'}
+        </div>
+      );
+    }
+
+    
 
     return (
       <div>
         <Tick />
-        
+        {Tick()}
         
         <Hello name={this.state.name} last={this.state.last} 
         eMpty={this.state.eMpty} />
